@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1(class='title is-2')= heading
+    div(class='content')
+        dl
+            dt(class='has-text-weight-bold') Id сборки
+            dd= build.buildId
+            dt(class='has-text-weight-bold') Статус сборки
+            dd= build.status
+            dt(class='has-text-weight-bold') Дата начала сборки
+            dd= build.createdAt
+            dt(class='has-text-weight-bold') Дата окончания сборки
+            dd= build.finishedAt
+            dt(class='has-text-weight-bold') Хэш коммита
+            dd= build.commitHash
+            dt(class='has-text-weight-bold') Команда
+            dd= build.command
+            dt(class='has-text-weight-bold') STDOUT
+            dd= build.stdout
+            dt(class='has-text-weight-bold') STDERR
+            dd= build.stderr
+
+

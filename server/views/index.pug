@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1(class='title is-2')= heading
+  div(class='columns')
+    form(class='column is-one-quarter-widescreen' method='POST', action='/')
+      div(class='field')
+        label(class='label', for='id-commit-hash') Хэш коммита
+        div(class='control')
+          input(class='input', id='id-commit-hash', name='commit_hash', type='text')
+      div(class='field')
+        label(class='label', for='id-command') Команда
+        div(class='control')
+          input(class='input', id='id-command', name='command', type='text')
+      div(class='field')
+        button(class='button is-success', type='submit') Запустить сборку
+
+  h2(class='title is-4') Список сборок
+  table(class='table is-hoverable is-fullwidth')
+    thead
+      tr
+        th Команда
+        th Хэш коммита
+        th Статус
+        th Ссылка
+    tbody
+      each build in builds
+        tr
+          td= build.command
+          td= build.commitHash
+          td= build.status
+          td
+            a(href=`/build/${build.buildId}`) Link
+
+
+
